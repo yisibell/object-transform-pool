@@ -1,0 +1,67 @@
+{
+  "name": "object-transform-pool",
+  "version": "1.0.0",
+  "description": "Run Node.js object-mode transforms concurrently with a pool of reusable instances.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/yisibell/object-transform-pool",
+  "bugs": {
+    "url": "https://github.com/yisibell/object-transform-pool/issues"
+  },
+  "keywords": [
+    "stream",
+    "stream-transform",
+    "concurrently"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm build && node --test",
+    "playground": "pnpm build && node playground/index.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release:nobuild": "changelogen --release && npm publish --access=public && git push --follow-tags",
+    "release": "npm run build && changelogen --release && npm publish --access=public && git push --follow-tags"
+  },
+  "dependencies": {
+    "stream-transform": "^3.6.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.0.0",
+    "changelogen": "^0.6.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-format": "^2.0.1",
+    "gulp": "^5.0.1",
+    "gulp-awspublish": "^8.0.0",
+    "gulp-rename": "^2.1.0",
+    "publint": "^0.3.0",
+    "tsdown": "^0.15.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.71.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
